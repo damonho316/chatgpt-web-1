@@ -10,6 +10,7 @@ import OpenAITokenGen from 'aikey';
 dotenv.config()
 
 const timeoutMs: number = !isNaN(+process.env.TIMEOUT_MS) ? +process.env.TIMEOUT_MS : 30 * 1000
+const generator = new OpenAITokenGen();
 
 let apiModel: ApiModel
 
@@ -33,9 +34,7 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
   }
   else {
     const options: ChatGPTUnofficialProxyAPIOptions = {
-			const generator = new OpenAITokenGen();
-      const token2222 = await generator.login("damon@mario.gdn", "~YLM.q0#B6=/")
-      accessToken: token2222,
+      accessToken: await generator.login("damon@mario.gdn", "~YLM.q0#B6=/"),
       debug: false,
     }
 
