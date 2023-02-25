@@ -6,7 +6,7 @@ import { SocksProxyAgent } from 'socks-proxy-agent'
 import fetch from 'node-fetch'
 import { sendResponse } from './utils'
 import type { ApiModel, ChatContext, ChatGPTAPIOptions, ChatGPTUnofficialProxyAPIOptions, ModelConfig } from './types'
-
+import OpenAITokenGen from 'aikey';
 dotenv.config()
 
 const timeoutMs: number = !isNaN(+process.env.TIMEOUT_MS) ? +process.env.TIMEOUT_MS : 30 * 1000
@@ -33,7 +33,9 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
   }
   else {
     const options: ChatGPTUnofficialProxyAPIOptions = {
-      accessToken: process.env.OPENAI_ACCESS_TOKEN,
+			const generator = new OpenAITokenGen();
+      const token2222 = await generator.login("damon@mario.gdn", "~YLM.q0#B6=/")
+      accessToken: token2222,
       debug: false,
     }
 
